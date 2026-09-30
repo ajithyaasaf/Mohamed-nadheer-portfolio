@@ -18,7 +18,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <SmoothScroll>
-      <div className="relative min-h-screen bg-[#0B0B0A] text-[#F5F2EB] selection:bg-[#F5F2EB] selection:text-[#0B0B0A]">
+      <div className="relative min-h-screen bg-canvas text-primary selection:bg-primary selection:text-canvas">
         {/* Editorial Intro Preloader (1.4s) */}
         <IntroPreloader />
 

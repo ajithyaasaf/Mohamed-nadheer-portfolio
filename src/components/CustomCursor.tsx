@@ -104,14 +104,14 @@ export default function CustomCursor() {
       <div
         className={`relative flex items-center justify-center transition-all duration-200 ease-out ${
           cursorText
-            ? "px-3.5 py-1.5 rounded-full bg-white text-black font-bold border border-white shadow-2xl scale-100"
+            ? "px-3.5 py-1.5 rounded-full bg-primary text-canvas font-bold border border-primary shadow-2xl scale-100"
             : isHovered
-            ? "w-8 h-8 rounded-full border-2 border-[#FF6654] bg-[#FF6654]/20 scale-125"
-            : "w-3 h-3 rounded-full bg-[#FF6654] scale-100 shadow-md"
+            ? "w-8 h-8 rounded-full border-2 border-accent bg-accent/20 scale-125"
+            : "w-3 h-3 rounded-full bg-accent scale-100 shadow-md"
         }`}
       >
         {cursorText && (
-          <span className="font-mono text-[10px] font-bold tracking-widest uppercase select-none whitespace-nowrap text-black">
+          <span className="font-mono text-[10px] font-bold tracking-widest uppercase select-none whitespace-nowrap text-canvas">
             {cursorText}
           </span>
         )}

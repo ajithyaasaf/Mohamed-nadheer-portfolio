@@ -1,16 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
   subsets: ["latin"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -77,9 +79,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full bg-[#0B0B0A] text-[#F5F2EB]`}
+      className={`${spaceGrotesk.variable} ${spaceMono.variable} h-full bg-canvas text-primary`}
     >
-      <body className="min-h-full flex flex-col font-sans antialiased bg-[#0B0B0A] text-[#F5F2EB]">
+      <body className="min-h-full flex flex-col font-sans antialiased bg-canvas text-primary">
         {children}
       </body>
     </html>

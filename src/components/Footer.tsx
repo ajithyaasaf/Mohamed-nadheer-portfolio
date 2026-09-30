@@ -9,14 +9,14 @@ export default function Footer() {
   };
 
   return (
-    <footer className="py-12 border-t border-[rgba(245,242,235,0.14)] bg-[#0B0B0A] text-[#C5BFB3] font-mono text-xs">
+    <footer className="py-12 border-t border-subtle bg-canvas text-secondary font-mono text-xs">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         {/* Left: Identity */}
         <div>
-          <span className="text-white font-bold tracking-tight uppercase block text-sm">
+          <span className="text-display font-bold tracking-tight uppercase block text-sm">
             Mohamed Nadheer
           </span>
-          <span className="text-[11px] tracking-wider text-[#A8A399] uppercase block mt-1">
+          <span className="text-[11px] tracking-wider text-muted uppercase block mt-1">
             Video Editor · Madurai, Tamil Nadu, India
           </span>
         </div>
@@ -25,7 +25,7 @@ export default function Footer() {
         <div className="flex flex-wrap items-center gap-2.5 text-xs">
           <a
             href="mailto:nadheeransari24@gmail.com"
-            className="pill-tag py-1 px-3.5 uppercase font-medium text-white bg-[#141413] border-[rgba(245,242,235,0.22)] hover:bg-white hover:text-black"
+            className="pill-tag py-1 px-3.5 uppercase font-medium text-display bg-surface border-visible hover:bg-white hover:text-black"
           >
             Email
           </a>
@@ -33,7 +33,7 @@ export default function Footer() {
             href="https://wa.me/919042050028"
             target="_blank"
             rel="noopener noreferrer"
-            className="pill-tag py-1 px-3.5 uppercase font-medium text-white bg-[#141413] border-[rgba(245,242,235,0.22)] hover:bg-white hover:text-black"
+            className="pill-tag py-1 px-3.5 uppercase font-medium text-display bg-surface border-visible hover:bg-white hover:text-black"
           >
             WhatsApp
           </a>
@@ -41,7 +41,7 @@ export default function Footer() {
             href="https://www.instagram.com/__nadzz_?stkn=ODhrMTVqc2hoNGo3"
             target="_blank"
             rel="noopener noreferrer"
-            className="pill-tag py-1 px-3.5 uppercase font-medium text-white bg-[#141413] border-[rgba(245,242,235,0.22)] hover:bg-white hover:text-black"
+            className="pill-tag py-1 px-3.5 uppercase font-medium text-display bg-surface border-visible hover:bg-white hover:text-black"
           >
             Instagram
           </a>
@@ -49,7 +49,7 @@ export default function Footer() {
             href="https://www.youtube.com/@NadheerAnsari"
             target="_blank"
             rel="noopener noreferrer"
-            className="pill-tag py-1 px-3.5 uppercase font-medium text-white bg-[#141413] border-[rgba(245,242,235,0.22)] hover:bg-white hover:text-black"
+            className="pill-tag py-1 px-3.5 uppercase font-medium text-display bg-surface border-visible hover:bg-white hover:text-black"
           >
             YouTube
           </a>
@@ -57,13 +57,13 @@ export default function Footer() {
 
         {/* Right: Back to Top & Time */}
         <div className="flex items-center gap-6">
-          <span className="text-[11px] text-[#A8A399] hidden lg:inline font-mono">
+          <span className="text-[11px] text-muted hidden lg:inline font-mono">
             TIMELINE END [ 24.00 FPS ]
           </span>
 
           <button
             onClick={scrollToTop}
-            className="btn-pill-outline text-xs py-1.5 px-4 font-mono font-medium text-white border-[rgba(245,242,235,0.35)] hover:bg-white hover:text-black flex items-center gap-1.5 cursor-pointer"
+            className="btn-pill-outline text-xs py-1.5 px-4 font-mono font-medium text-display border-visible hover:bg-white hover:text-black flex items-center gap-1.5 cursor-pointer"
             aria-label="Back to Top"
             data-cursor="TOP"
           >
@@ -73,9 +73,9 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 mt-8 pt-6 border-t border-[rgba(245,242,235,0.08)] flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#A8A399]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 mt-8 pt-6 border-t border-subtle flex flex-col sm:flex-row items-center justify-between text-[11px] text-muted">
         <span>© {new Date().getFullYear()} MOHAMED NADHEER. ALL CUTS & TIMELINES RESERVED.</span>
-        <span className="mt-2 sm:mt-0 font-medium text-[#C5BFB3]">DESIGNED WITH EDITORIAL RESTRAINT</span>
+        <span className="mt-2 sm:mt-0 font-medium text-secondary">DESIGNED WITH EDITORIAL RESTRAINT</span>
       </div>
     </footer>
   );

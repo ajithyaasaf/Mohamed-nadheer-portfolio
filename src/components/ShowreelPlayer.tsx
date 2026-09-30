@@ -80,24 +80,24 @@ export default function ShowreelPlayer() {
   return (
     <section id="showreel" className="py-16 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full">
       {/* Section Header with High Contrast Labels */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 border-b border-[rgba(245,242,235,0.14)] pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 border-b border-subtle pb-4">
         <div>
-          <span className="font-mono text-xs tracking-widest text-[#FF6654] uppercase font-bold block">
+          <span className="font-mono text-xs tracking-widest text-accent uppercase font-bold block">
             MASTER SEQUENCE 01
           </span>
-          <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-white uppercase mt-1">
+          <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-display uppercase mt-1">
             2026 Editorial Showreel
           </h2>
         </div>
 
         <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
-          <span className="pill-tag text-xs py-0.5 px-3 text-white bg-[#141413] border-[rgba(245,242,235,0.22)]">
+          <span className="pill-tag text-xs py-0.5 px-3 text-display bg-surface border-visible">
             {SHOWREEL_DATA.codec}
           </span>
-          <span className="pill-tag text-xs py-0.5 px-3 text-white bg-[#141413] border-[rgba(245,242,235,0.22)]">
+          <span className="pill-tag text-xs py-0.5 px-3 text-display bg-surface border-visible">
             {SHOWREEL_DATA.fps}
           </span>
-          <span className="text-white font-mono font-bold text-sm tracking-wider">
+          <span className="text-display font-mono font-bold text-sm tracking-wider">
             {formatTimecode(currentTime)}
           </span>
         </div>
@@ -107,7 +107,7 @@ export default function ShowreelPlayer() {
       <div
         ref={containerRef}
         onClick={togglePlay}
-        className="relative group w-full bg-[#0E0E0D] overflow-hidden rounded-xl border-2 border-[rgba(245,242,235,0.22)] shadow-2xl cursor-pointer select-none"
+        className="relative group w-full bg-canvas overflow-hidden rounded-xl border-2 border-visible shadow-2xl cursor-pointer select-none"
         data-cursor={isPlaying ? "PAUSE" : "PLAY REEL"}
       >
         {/* Aspect Ratio Frame: 16:9 widescreen */}
@@ -128,14 +128,14 @@ export default function ShowreelPlayer() {
           {/* Letterbox Mask Accents */}
           <div className="absolute top-0 left-0 right-0 h-6 sm:h-9 bg-black/85 pointer-events-none z-10 flex items-center justify-between px-6 font-mono text-[10px] tracking-widest text-neutral-300">
             <span>CAMERA A // 2026 MASTER REEL</span>
-            <span className="text-[#FF6654] font-bold">PRORES // REC.709</span>
+            <span className="text-accent font-bold">PRORES // REC.709</span>
           </div>
           <div className="absolute bottom-0 left-0 right-0 h-6 sm:h-9 bg-black/85 pointer-events-none z-10" />
 
           {/* Initial Play State Center Action Button */}
           {!isPlaying && (
             <div className="absolute inset-0 bg-black/45 backdrop-blur-[2px] flex flex-col items-center justify-center p-6 text-center transition-all duration-300">
-              <div className="w-18 h-18 sm:w-22 sm:h-22 rounded-full border-2 border-white bg-black/80 flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-[#E55B4C] group-hover:border-[#E55B4C] transition-all duration-300 shadow-2xl mb-4">
+              <div className="w-18 h-18 sm:w-22 sm:h-22 rounded-full border-2 border-white bg-black/80 flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-accent group-hover:border-accent transition-all duration-300 shadow-2xl mb-4">
                 <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-current ml-1" />
               </div>
 
@@ -152,7 +152,7 @@ export default function ShowreelPlayer() {
           {isPlaying && isMuted && (
             <button
               onClick={toggleMute}
-              className="absolute top-12 right-6 z-20 bg-black/90 border border-neutral-600 text-white px-3.5 py-1.5 rounded-full font-mono text-xs tracking-widest uppercase flex items-center gap-2 hover:bg-[#E55B4C] transition-all shadow-xl"
+              className="absolute top-12 right-6 z-20 bg-black/90 border border-neutral-600 text-white px-3.5 py-1.5 rounded-full font-mono text-xs tracking-widest uppercase flex items-center gap-2 hover:bg-accent transition-all shadow-xl"
             >
               <VolumeX className="w-4 h-4 text-amber-300" />
               <span>SOUND MUTED (CLICK TO UNMUTE)</span>
@@ -163,7 +163,7 @@ export default function ShowreelPlayer() {
         {/* Minimal Timeline-Inspired Editorial Player Bar */}
         <div
           onClick={(e) => e.stopPropagation()}
-          className="bg-[#141412] border-t border-neutral-800 p-4 sm:px-6 sm:py-4 flex flex-col gap-3"
+          className="bg-surface border-t border-neutral-800 p-4 sm:px-6 sm:py-4 flex flex-col gap-3"
         >
           {/* Timeline Scrubber Bar */}
           <div
@@ -173,7 +173,7 @@ export default function ShowreelPlayer() {
           >
             <div className="w-full h-1.5 bg-neutral-700 relative overflow-hidden group-hover/track:h-2 transition-all rounded-full">
               <div
-                className="h-full bg-[#E55B4C] relative"
+                className="h-full bg-accent relative"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -194,12 +194,12 @@ export default function ShowreelPlayer() {
               >
                 {isPlaying ? (
                   <>
-                    <Pause className="w-4 h-4 text-[#FF6654]" />
+                    <Pause className="w-4 h-4 text-accent" />
                     <span className="font-semibold text-white">PAUSE</span>
                   </>
                 ) : (
                   <>
-                    <Play className="w-4 h-4 fill-current text-[#FF6654]" />
+                    <Play className="w-4 h-4 fill-current text-accent" />
                     <span className="font-semibold text-white">PLAY</span>
                   </>
                 )}
@@ -228,7 +228,7 @@ export default function ShowreelPlayer() {
 
             {/* Timecode Readout */}
             <div className="text-center font-timecode text-xs text-white">
-              <span className="text-[#FF6654] font-bold">{formatTimecode(currentTime)}</span>
+              <span className="text-accent font-bold">{formatTimecode(currentTime)}</span>
               <span className="text-neutral-500 mx-2">/</span>
               <span className="text-neutral-300">{formatTimecode(duration || 84)}</span>
             </div>
@@ -251,11 +251,11 @@ export default function ShowreelPlayer() {
       </div>
 
       {/* Editorial Caption / Showreel Description */}
-      <div className="mt-5 flex flex-col sm:flex-row sm:items-center justify-between text-xs font-mono text-[#A8A399] gap-3">
-        <p className="max-w-2xl text-[#DDD8CE] font-sans text-sm leading-relaxed">
+      <div className="mt-5 flex flex-col sm:flex-row sm:items-center justify-between text-xs font-mono text-muted gap-3">
+        <p className="max-w-2xl text-body font-sans text-sm leading-relaxed">
           {SHOWREEL_DATA.description}
         </p>
-        <span className="pill-tag text-[10px] py-1 px-3 text-white bg-[#141413] border-[rgba(245,242,235,0.22)]">
+        <span className="pill-tag text-[10px] py-1 px-3 text-display bg-surface border-visible">
           CUT & MASTERED IN PREMIERE PRO & DAVINCI RESOLVE
         </span>
       </div>

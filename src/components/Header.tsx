@@ -29,7 +29,7 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#0B0B0A]/95 backdrop-blur-md border-b border-[rgba(245,242,235,0.12)] py-4 shadow-xl"
+            ? "bg-canvas/95 backdrop-blur-md border-b border-subtle py-4 shadow-xl"
             : "bg-transparent py-6 sm:py-8"
         }`}
       >
@@ -40,10 +40,10 @@ export default function Header() {
             className="group flex flex-col items-start focus:outline-none"
             data-cursor="TOP"
           >
-            <span className="text-base sm:text-lg font-semibold tracking-tight text-white group-hover:text-[#FF6654] transition-colors uppercase">
+            <span className="text-base sm:text-lg font-semibold tracking-tight text-display group-hover:text-accent transition-colors uppercase">
               Mohamed Nadheer
             </span>
-            <span className="font-mono text-[11px] tracking-widest text-[#A8A399] uppercase flex items-center gap-1.5 mt-0.5">
+            <span className="font-mono text-[11px] tracking-widest text-muted uppercase flex items-center gap-1.5 mt-0.5">
               <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse" />
               Video Editor · Madurai, IN
             </span>
@@ -51,14 +51,14 @@ export default function Header() {
 
           {/* Desktop Minimal Editorial Navigation */}
           <nav
-            className="hidden md:flex items-center gap-8 lg:gap-10 font-mono text-xs tracking-wider text-[#C5BFB3]"
+            className="hidden md:flex items-center gap-8 lg:gap-10 font-mono text-xs tracking-wider text-secondary"
             aria-label="Main Navigation"
           >
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="hover:text-white font-medium transition-colors relative py-1 focus:outline-none"
+                className="hover:text-display font-medium transition-colors relative py-1 focus:outline-none"
                 data-cursor="GOTO"
               >
                 {item.label}
@@ -81,7 +81,7 @@ export default function Header() {
           <div className="flex md:hidden items-center gap-3">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-white focus:outline-none"
+              className="p-2 text-display focus:outline-none"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -92,13 +92,13 @@ export default function Header() {
 
       {/* Mobile Editorial Overlay Menu */}
       <div
-        className={`fixed inset-0 z-40 bg-[#0B0B0A] px-8 pt-28 pb-12 flex flex-col justify-between md:hidden transition-transform duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] ${
+        className={`fixed inset-0 z-40 bg-canvas px-8 pt-28 pb-12 flex flex-col justify-between md:hidden transition-transform duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] ${
           mobileMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
         aria-hidden={!mobileMenuOpen}
       >
         <div className="flex flex-col space-y-5">
-          <span className="font-mono text-xs tracking-widest text-[#A8A399] uppercase">
+          <span className="font-mono text-xs tracking-widest text-muted uppercase">
             // INDEX NAVIGATION
           </span>
           {navItems.map((item, index) => (
@@ -106,24 +106,24 @@ export default function Header() {
               key={item.label}
               href={item.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-2xl font-light text-white tracking-tight hover:text-[#FF6654] transition-colors flex items-center justify-between border-b border-[rgba(245,242,235,0.1)] pb-3"
+              className="text-2xl font-light text-display tracking-tight hover:text-accent transition-colors flex items-center justify-between border-b border-subtle pb-3"
             >
               <span>{item.label}</span>
-              <span className="font-mono text-xs text-[#A8A399]">
+              <span className="font-mono text-xs text-muted">
                 0{index + 1}
               </span>
             </a>
           ))}
         </div>
 
-        <div className="space-y-4 pt-6 border-t border-[rgba(245,242,235,0.14)]">
-          <div className="flex justify-between items-center text-xs font-mono text-[#C5BFB3]">
+        <div className="space-y-4 pt-6 border-t border-subtle">
+          <div className="flex justify-between items-center text-xs font-mono text-secondary">
             <span>LOCATION</span>
-            <span className="text-white font-medium">MADURAI, TAMIL NADU</span>
+            <span className="text-display font-medium">MADURAI, TAMIL NADU</span>
           </div>
-          <div className="flex justify-between items-center text-xs font-mono text-[#C5BFB3]">
+          <div className="flex justify-between items-center text-xs font-mono text-secondary">
             <span>PORTFOLIO VOLUME</span>
-            <span className="text-[#FF6654] font-semibold">150+ EDITS</span>
+            <span className="text-accent font-semibold">150+ EDITS</span>
           </div>
           <a
             href="https://wa.me/919042050028"

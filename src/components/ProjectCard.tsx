@@ -40,25 +40,25 @@ export default function ProjectCard({
       onClick={() => onSelect(project)}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="group relative cursor-pointer border-t border-[rgba(245,242,235,0.14)] pt-10 pb-14 transition-all duration-300"
+      className="group relative cursor-pointer border-t border-subtle pt-10 pb-14 transition-all duration-300"
       data-cursor="VIEW EDIT"
     >
       {/* Top Editorial Index & Meta Line (High Contrast) */}
-      <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-[#A8A399] mb-5">
+      <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-muted mb-5">
         <div className="flex items-center gap-3">
-          <span className="text-white font-bold text-sm tracking-wider">[{project.number}]</span>
-          <span className="pill-tag text-xs uppercase font-semibold text-white bg-[rgba(245,242,235,0.08)] border-[rgba(245,242,235,0.25)]">
+          <span className="text-display font-bold text-sm tracking-wider">[{project.number}]</span>
+          <span className="pill-tag text-xs uppercase font-semibold text-display bg-surface border-visible">
             {project.category}
           </span>
-          <span className="text-[#C5BFB3] font-medium">{project.year}</span>
+          <span className="text-secondary font-medium">{project.year}</span>
         </div>
 
         <div className="flex items-center gap-3">
-          <span className="pill-tag text-[11px] py-0.5 px-2.5 text-[#DDD8CE] border-[rgba(245,242,235,0.2)]">
+          <span className="pill-tag text-[11px] py-0.5 px-2.5 text-body border-visible">
             {project.aspectRatio}
           </span>
-          <span className="text-xs text-[#A8A399] hidden sm:inline">{project.fps}</span>
-          <span className="text-white font-timecode font-bold tracking-wider">{project.duration}</span>
+          <span className="text-xs text-muted hidden sm:inline">{project.fps}</span>
+          <span className="text-display font-timecode font-bold tracking-wider">{project.duration}</span>
         </div>
       </div>
 
@@ -67,32 +67,32 @@ export default function ProjectCard({
         {/* Left Column: Project Titles, Role & Narrative Brief */}
         <div className="lg:col-span-5 flex flex-col justify-between h-full order-2 lg:order-1">
           <div>
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white uppercase tracking-[-0.03em] group-hover:text-[#FF6654] transition-colors leading-tight">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-light text-display uppercase tracking-[-0.03em] group-hover:text-accent transition-colors leading-tight">
               {project.title}
             </h3>
 
-            <div className="mt-4 font-mono text-xs space-y-2 bg-[#141413] p-4 rounded-lg border border-[rgba(245,242,235,0.1)]">
-              <p className="text-[#E8E4DA] leading-relaxed">
-                <span className="text-[#FF6654] font-bold mr-1.5">ROLE:</span>
+            <div className="mt-4 font-mono text-xs space-y-2 bg-surface p-4 rounded-lg border border-subtle">
+              <p className="text-body leading-relaxed">
+                <span className="text-accent font-bold mr-1.5">ROLE:</span>
                 {project.role}
               </p>
-              <p className="text-[#C5BFB3] leading-relaxed">
-                <span className="text-[#A8A399] font-semibold mr-1.5">PACING:</span>
+              <p className="text-secondary leading-relaxed">
+                <span className="text-muted font-semibold mr-1.5">PACING:</span>
                 {project.editingNotes.cutStyle}
               </p>
             </div>
 
-            <p className="mt-4 text-base text-[#DDD8CE] font-light leading-relaxed">
+            <p className="mt-4 text-base text-body font-light leading-relaxed">
               {project.synopsis}
             </p>
           </div>
 
-          <div className="mt-8 pt-6 border-t border-[rgba(245,242,235,0.1)] flex flex-wrap items-center justify-between gap-4">
+          <div className="mt-8 pt-6 border-t border-subtle flex flex-wrap items-center justify-between gap-4">
             <div className="flex flex-wrap items-center gap-2">
               {project.software.map((sw) => (
                 <span
                   key={sw}
-                  className="pill-tag text-[11px] py-0.5 px-3 text-[#E8E4DA] bg-[#181816] border-[rgba(245,242,235,0.2)]"
+                  className="pill-tag text-[11px] py-0.5 px-3 text-body bg-surface-elevated border-visible"
                 >
                   {sw.replace("Adobe ", "").replace(" Studio", "")}
                 </span>
@@ -109,7 +109,7 @@ export default function ProjectCard({
         {/* Right Column: Monumental Media Frame */}
         <div className="lg:col-span-7 order-1 lg:order-2">
           <div
-            className={`relative w-full bg-[#121211] overflow-hidden rounded-lg border-2 border-[rgba(245,242,235,0.2)] group-hover:border-[#FF6654] transition-all duration-500 shadow-xl ${
+            className={`relative w-full bg-surface overflow-hidden rounded-lg border-2 border-visible group-hover:border-accent transition-all duration-500 shadow-xl ${
               isReels ? "max-w-xs sm:max-w-sm mx-auto aspect-[9/16]" : "aspect-[16/9]"
             }`}
           >

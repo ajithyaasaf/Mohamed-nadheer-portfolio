@@ -55,16 +55,16 @@ export default function IntroPreloader() {
   return (
     <div
       onClick={handleSkip}
-      className={`fixed inset-0 z-[99999] bg-[#0B0B0A] flex flex-col justify-between p-8 sm:p-12 transition-transform duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] ${
+      className={`fixed inset-0 z-[99999] bg-canvas flex flex-col justify-between p-8 sm:p-12 transition-transform duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] ${
         isCompleted ? "-translate-y-full pointer-events-none" : "translate-y-0"
       }`}
       aria-live="polite"
       role="status"
     >
       {/* Top Bar: Timecode & Slate Metadata */}
-      <div className="flex items-center justify-between text-[#77736B] font-mono text-[11px] tracking-widest uppercase">
+      <div className="flex items-center justify-between text-muted font-mono text-[11px] tracking-widest uppercase">
         <div className="flex items-center gap-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
           <span>REC [ 24.00 FPS ]</span>
         </div>
         <div>
@@ -76,17 +76,17 @@ export default function IntroPreloader() {
       <div className="max-w-4xl mx-auto w-full text-center py-12">
         <div className="overflow-hidden min-h-[90px] flex items-center justify-center">
           {step === 0 && (
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#B0AAA0] animate-fadeIn">
+            <p className="font-mono text-xs uppercase tracking-[0.25em] text-secondary animate-fadeIn">
               INITIALIZING TIMELINE
             </p>
           )}
 
           {step === 1 && (
             <div className="animate-fadeIn">
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#77736B] block mb-2">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted block mb-2">
                 01 / SLATE
               </span>
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-[-0.04em] text-[#F1EBDD] uppercase">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-[-0.04em] text-primary uppercase font-display">
                 MOHAMED NADHEER
               </h1>
             </div>
@@ -94,10 +94,10 @@ export default function IntroPreloader() {
 
           {step === 2 && (
             <div className="animate-fadeIn">
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#77736B] block mb-2">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted block mb-2">
                 02 / ROLE
               </span>
-              <h2 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-[-0.04em] text-[#F1EBDD] uppercase">
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-[-0.04em] text-primary uppercase font-display">
                 VIDEO EDITOR
               </h2>
             </div>
@@ -105,10 +105,10 @@ export default function IntroPreloader() {
 
           {step >= 3 && (
             <div className="animate-fadeIn">
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#77736B] block mb-2">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted block mb-2">
                 03 / BASE
               </span>
-              <h2 className="text-2xl sm:text-4xl md:text-5xl font-light tracking-[-0.03em] text-[#F1EBDD] uppercase">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-light tracking-[-0.03em] text-primary uppercase font-display">
                 MADURAI / INDIA
               </h2>
             </div>
@@ -117,11 +117,11 @@ export default function IntroPreloader() {
       </div>
 
       {/* Bottom Bar: Quick Dismiss */}
-      <div className="flex items-center justify-between text-[#77736B] font-mono text-[10px] tracking-widest uppercase">
+      <div className="flex items-center justify-between text-muted font-mono text-[10px] tracking-widest uppercase">
         <span>PRORES 422 HQ</span>
         <button
           onClick={handleSkip}
-          className="hover:text-[#F1EBDD] transition-colors focus:outline-none"
+          className="hover:text-primary transition-colors focus:outline-none cursor-pointer"
         >
           [ CLICK TO SKIP INTRO ]
         </button>

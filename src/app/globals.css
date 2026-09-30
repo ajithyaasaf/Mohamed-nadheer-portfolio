@@ -1,54 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  --font-mono: var(--font-space-mono), "Space Mono", monospace;
+  --font-display: "Syne", var(--font-space-grotesk), sans-serif;
+
+  /* Centralized Semantic Colors for Tailwind Utilities */
+  --color-canvas: var(--bg-canvas);
+  --color-surface: var(--bg-surface);
+  --color-surface-elevated: var(--bg-surface-elevated);
+  --color-tag: #181816;
+
+  /* Typography Tokens */
+  --color-display: var(--text-display);
+  --color-primary: var(--text-primary);
+  --color-body: var(--text-body);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+
+  /* Border Tokens */
+  --color-subtle: var(--border-subtle);
+  --color-visible: var(--border-visible);
+  --color-strong: var(--border-strong);
+  --color-solid: var(--border-solid);
+
+  /* Accent Tokens */
+  --color-accent: var(--accent-red);
+  --color-accent-hover: var(--accent-red-hover);
+  --color-accent-cream: var(--accent-cream);
+}
 
 @layer base {
   :root {
-    /* Master Cinematic Dark Palette (Senior Graphic Designer Contrast System) */
+    /* ==========================================================================
+       CENTRAL COLOR PALETTE CONFIGURATION
+       Modify values here in ONE PLACE to re-theme the entire website.
+       ========================================================================== */
+
+    /* 1. Canvas & Surface Layers */
     --bg-canvas: #0B0B0A;
     --bg-surface: #141413;
     --bg-surface-elevated: #1B1B19;
     --bg-pill: rgba(245, 242, 235, 0.07);
     --bg-pill-hover: #F5F2EB;
     
-    /* High-Visibility Typography Hierarchy (WCAG AAA compliant on #0B0B0A) */
+    /* 2. Typography Luminance Scale */
     --text-display: #FFFFFF;        /* 100% luminance - Monumental Headings */
     --text-primary: #F5F2EB;        /* 92% luminance - Project titles, bold copy */
     --text-body: #DDD8CE;           /* 82% luminance - Body text, descriptions */
     --text-secondary: #B4AEA3;      /* 68% luminance - Metadata, labels, roles */
     --text-muted: #8A857B;          /* 52% luminance - Sub-labels, timecodes */
     
-    /* Visible Structural Borders */
-    --border-subtle: rgba(245, 242, 235, 0.12);
+    /* 3. Structural Borders */
+    --border-subtle: rgba(245, 242, 235, 0.14);
     --border-visible: rgba(245, 242, 235, 0.22);
     --border-strong: rgba(245, 242, 235, 0.45);
     --border-solid: #F5F2EB;
     
-    /* Cinematic Accents */
-    --accent-red: #E55B4C;
-    --accent-red-hover: #FF6654;
-    --accent-cream: #F5F2EB;
+    /* 4. Cinematic Brand Accents */
+    --accent-red: #E55B4C;          /* Primary Accent (Buttons, Highlights) */
+    --accent-red-hover: #FF6654;    /* Interactive Hover Glow */
+    --accent-cream: #F5F2EB;        /* Cream Contrast Accent */
   }
 
   html {
-    background-color: #0B0B0A;
-    color: #F5F2EB;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
     scroll-behavior: smooth;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
   }
 
   body {
-    background-color: #0B0B0A;
-    color: #F5F2EB;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
     overflow-x: hidden;
     position: relative;
-    selection-background-color: #F5F2EB;
-    selection-color: #0B0B0A;
+    font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  }
+
+  /* Monumental Sculptural Display Headings (Reference Style) */
+  h1, h2, .font-display {
+    font-family: "Syne", var(--font-space-grotesk), sans-serif;
+    letter-spacing: -0.035em;
   }
 
   ::selection {
-    background-color: #F5F2EB;
-    color: #0B0B0A;
+    background-color: var(--text-primary);
+    color: var(--bg-canvas);
   }
 }
 
@@ -65,17 +107,17 @@
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Reference-Style Pill Tag Utility (High-contrast for Dark UI) */
+/* Reference-Style Pill Tag Utility (Centralized Design Tokens) */
 .pill-tag {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.35rem 0.95rem;
   border-radius: 9999px;
-  border: 1px solid rgba(245, 242, 235, 0.22);
-  background-color: rgba(245, 242, 235, 0.06);
-  color: #F5F2EB;
-  font-family: var(--font-geist-mono), monospace;
+  border: 1px solid var(--border-visible);
+  background-color: var(--bg-pill);
+  color: var(--text-primary);
+  font-family: var(--font-space-mono), monospace;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.03em;
@@ -83,12 +125,12 @@
 }
 
 .pill-tag:hover {
-  background-color: #F5F2EB;
-  border-color: #FFFFFF;
-  color: #0B0B0A;
+  background-color: var(--text-primary);
+  border-color: var(--text-display);
+  color: var(--bg-canvas);
 }
 
-/* High-Visibility Primary Red Pill Button */
+/* High-Visibility Primary Red Pill Button (Centralized Tokens) */
 .btn-pill-red {
   display: inline-flex;
   align-items: center;
@@ -96,9 +138,9 @@
   gap: 0.5rem;
   padding: 0.65rem 1.65rem;
   border-radius: 9999px;
-  background-color: #E55B4C;
-  color: #FFFFFF;
-  font-family: var(--font-geist-sans), sans-serif;
+  background-color: var(--accent-red);
+  color: var(--text-display);
+  font-family: var(--font-space-grotesk), sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -107,12 +149,12 @@
 }
 
 .btn-pill-red:hover {
-  background-color: #FF6654;
+  background-color: var(--accent-red-hover);
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(229, 91, 76, 0.45);
 }
 
-/* High-Visibility Outlined Pill Button */
+/* High-Visibility Outlined Pill Button (Centralized Tokens) */
 .btn-pill-outline {
   display: inline-flex;
   align-items: center;
@@ -120,10 +162,10 @@
   gap: 0.5rem;
   padding: 0.65rem 1.65rem;
   border-radius: 9999px;
-  border: 1.5px solid rgba(245, 242, 235, 0.35);
+  border: 1.5px solid var(--border-strong);
   background-color: transparent;
-  color: #F5F2EB;
-  font-family: var(--font-geist-sans), sans-serif;
+  color: var(--text-primary);
+  font-family: var(--font-space-grotesk), sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -131,15 +173,15 @@
 }
 
 .btn-pill-outline:hover {
-  background-color: #F5F2EB;
-  border-color: #FFFFFF;
-  color: #0B0B0A;
+  background-color: var(--text-primary);
+  border-color: var(--text-display);
+  color: var(--bg-canvas);
   transform: translateY(-1px);
 }
 
 /* Technical typography & timecodes */
 .font-timecode {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-space-mono), monospace;
   font-feature-settings: "tnum" 1, "zero" 1;
   letter-spacing: 0.08em;
 }

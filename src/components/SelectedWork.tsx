@@ -22,15 +22,15 @@ export default function SelectedWork() {
   return (
     <section id="work" className="py-20 sm:py-32 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full">
       {/* Editorial Section Heading (High Contrast) */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[rgba(245,242,235,0.14)] pb-8 mb-12 sm:mb-16">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-subtle pb-8 mb-12 sm:mb-16">
         <div>
-          <span className="font-mono text-xs tracking-widest text-[#FF6654] uppercase font-bold block mb-1">
+          <span className="font-mono text-xs tracking-widest text-accent uppercase font-bold block mb-1">
             CATALOGUE // REELS & CUTS
           </span>
-          <h2 className="text-4xl sm:text-6xl font-light tracking-tight text-white uppercase">
+          <h2 className="text-4xl sm:text-6xl font-light tracking-tight text-display uppercase">
             Selected Work
           </h2>
-          <p className="mt-2 text-base text-[#C5BFB3] font-light max-w-xl">
+          <p className="mt-2 text-base text-secondary font-light max-w-xl">
             A curated selection from 150+ commercial edits, cinematic films, and high-retention social pieces.
           </p>
         </div>
@@ -55,19 +55,19 @@ export default function SelectedWork() {
 
       {/* Featured Deep-Dive Project Banner (Cinema Spotlight) */}
       {activeCategory === "ALL" && (
-        <div className="mb-20 bg-[#141413] border-2 border-[rgba(245,242,235,0.22)] rounded-xl p-6 sm:p-10 relative overflow-hidden shadow-2xl">
-          <div className="flex items-center justify-between font-mono text-xs text-[#A8A399] uppercase tracking-wider mb-6">
-            <span className="flex items-center gap-2 text-[#FF6654] font-bold">
+        <div className="mb-20 bg-surface border-2 border-visible rounded-xl p-6 sm:p-10 relative overflow-hidden shadow-2xl">
+          <div className="flex items-center justify-between font-mono text-xs text-muted uppercase tracking-wider mb-6">
+            <span className="flex items-center gap-2 text-accent font-bold">
               <Sparkles className="w-4 h-4" />
               FEATURED EDITORIAL SPOTLIGHT
             </span>
-            <span className="pill-tag text-[10px] py-0.5 px-3 text-[#E8E4DA] border-[rgba(245,242,235,0.25)]">
+            <span className="pill-tag text-[10px] py-0.5 px-3 text-body border-visible">
               4K DCI CINEMA MASTER
             </span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 relative aspect-[16/9] bg-black overflow-hidden rounded-lg border border-[rgba(245,242,235,0.2)] group">
+            <div className="lg:col-span-7 relative aspect-[16/9] bg-black overflow-hidden rounded-lg border border-subtle group">
               <img
                 src={featuredProject.poster}
                 alt={featuredProject.title}
@@ -86,23 +86,23 @@ export default function SelectedWork() {
 
             <div className="lg:col-span-5 flex flex-col justify-between">
               <div>
-                <span className="pill-tag text-xs py-0.5 px-3 font-semibold mb-3 text-white bg-[rgba(245,242,235,0.08)] border-[rgba(245,242,235,0.25)]">
+                <span className="pill-tag text-xs py-0.5 px-3 font-semibold mb-3 text-display bg-surface border-visible">
                   PROJECT {featuredProject.number} · {featuredProject.year}
                 </span>
-                <h3 className="text-3xl sm:text-4xl font-light text-white uppercase tracking-tight mt-3 mb-4 leading-tight">
+                <h3 className="text-3xl sm:text-4xl font-light text-display uppercase tracking-tight mt-3 mb-4 leading-tight">
                   {featuredProject.title}
                 </h3>
-                <p className="text-base text-[#DDD8CE] leading-relaxed mb-6 font-light">
+                <p className="text-base text-body leading-relaxed mb-6 font-light">
                   {featuredProject.synopsis}
                 </p>
 
-                <div className="space-y-2 border-l-2 border-[#FF6654] pl-4 text-xs font-mono bg-[#181816] p-3 rounded-r-lg">
-                  <p className="text-[#E8E4DA]">
-                    <span className="text-white font-bold">PACING:</span>{" "}
+                <div className="space-y-2 border-l-2 border-accent pl-4 text-xs font-mono bg-surface-elevated p-3 rounded-r-lg">
+                  <p className="text-body">
+                    <span className="text-display font-bold">PACING:</span>{" "}
                     {featuredProject.editingNotes.timeline}
                   </p>
-                  <p className="text-[#C5BFB3]">
-                    <span className="text-white font-bold">COLOR:</span>{" "}
+                  <p className="text-secondary">
+                    <span className="text-display font-bold">COLOR:</span>{" "}
                     {featuredProject.editingNotes.colorGrade}
                   </p>
                 </div>
@@ -115,7 +115,7 @@ export default function SelectedWork() {
                 >
                   WATCH CASE STUDY
                 </button>
-                <span className="font-mono text-xs text-[#A8A399] font-medium">
+                <span className="font-mono text-xs text-muted font-medium">
                   {featuredProject.cutsCount} CUTS LOGGED
                 </span>
               </div>
