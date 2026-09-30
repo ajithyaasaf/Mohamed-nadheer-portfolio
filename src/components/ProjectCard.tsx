@@ -99,7 +99,7 @@ export default function ProjectCard({
               ))}
             </div>
 
-            <span className="btn-pill-outline text-xs py-1.5 px-4 font-mono font-medium group-hover:bg-white group-hover:text-black transition-all">
+            <span className="btn-pill-outline text-xs py-1.5 px-4 font-mono font-medium group-hover:bg-primary group-hover:text-canvas transition-all">
               <span>EXPLORE CUT</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </span>
@@ -145,7 +145,7 @@ export default function ProjectCard({
             </div>
 
             {/* Resolution Stamp */}
-            <div className="absolute top-4 left-4 z-10 font-mono text-[10px] tracking-wider text-white bg-black/85 px-2.5 py-1 rounded-sm border border-[rgba(245,242,235,0.15)]">
+            <div className="absolute top-4 left-4 z-10 font-mono text-[10px] tracking-wider text-primary bg-canvas/85 px-2.5 py-1 rounded-sm border border-subtle">
               <span>{project.resolution}</span>
             </div>
           </div>

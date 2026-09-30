@@ -66,7 +66,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-md flex justify-end overflow-y-auto"
+      className="fixed inset-0 z-[100] bg-canvas/85 backdrop-blur-md flex justify-end overflow-y-auto"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
@@ -74,7 +74,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       {/* Background Dim Dismiss Click */}
       <div
         onClick={onClose}
-        className="fixed inset-0 bg-black/60 cursor-pointer"
+        className="fixed inset-0 bg-canvas/60 cursor-pointer"
         aria-hidden="true"
       />
 
@@ -87,7 +87,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               <span className="pill-tag text-xs font-bold !bg-surface-elevated !text-primary !border-subtle">
                 PROJECT {project.number}
               </span>
-              <span className="pill-tag text-xs !bg-accent !text-display !border-accent uppercase font-semibold">
+              <span className="pill-tag text-xs !bg-accent !text-accent-cream !border-accent uppercase font-semibold">
                 {project.category}
               </span>
               <span className="text-muted font-mono">{project.year}</span>
@@ -121,8 +121,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
 
           {/* Embedded Video Showcase Player */}
-          <div className="relative mb-10 bg-black border-2 border-subtle rounded-lg overflow-hidden shadow-2xl">
-            <div className="relative aspect-[16/9] w-full bg-black">
+          <div className="relative mb-10 bg-canvas border-2 border-subtle rounded-lg overflow-hidden shadow-2xl">
+            <div className="relative aspect-[16/9] w-full bg-canvas">
               <video
                 ref={videoRef}
                 src={project.videoSrc}
@@ -137,9 +137,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               {!isPlaying && (
                 <div
                   onClick={togglePlay}
-                  className="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer transition-opacity"
+                  className="absolute inset-0 bg-canvas/50 flex items-center justify-center cursor-pointer transition-opacity"
                 >
-                  <div className="w-16 h-16 rounded-full border-2 border-primary bg-black/80 flex items-center justify-center text-primary hover:scale-110 hover:bg-accent hover:border-accent hover:text-display transition-all">
+                  <div className="w-16 h-16 rounded-full border-2 border-primary bg-canvas/80 flex items-center justify-center text-primary hover:scale-110 hover:bg-accent hover:border-accent hover:text-display transition-all">
                     <Play className="w-7 h-7 fill-current ml-1" />
                   </div>
                 </div>

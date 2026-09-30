@@ -25,11 +25,11 @@ export default function AboutSection() {
             />
 
             {/* Cinematic Camera Stamp Overlays */}
-            <div className="absolute top-4 left-4 font-mono text-[10px] tracking-widest text-display bg-black/85 px-3 py-1 rounded-sm border border-subtle">
+            <div className="absolute top-4 left-4 font-mono text-[10px] tracking-widest text-display bg-canvas/85 px-3 py-1 rounded-sm border border-subtle">
               MOHAMED NADHEER // SUITE 01
             </div>
 
-            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between font-mono text-[10px] tracking-widest text-neutral-200 bg-black/90 px-3.5 py-2 border border-neutral-700 rounded-sm">
+            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between font-mono text-[10px] tracking-widest text-primary bg-canvas/90 px-3.5 py-2 border border-subtle rounded-sm">
               <span>COLOR / DAVINCI STUDIO</span>
               <span className="text-emerald-400 font-bold">STATUS: ACTIVE</span>
             </div>

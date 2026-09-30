@@ -69,7 +69,7 @@ export default function Header() {
               href="https://wa.me/919042050028"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-pill-outline text-xs py-1.5 px-4 font-mono font-medium hover:bg-white hover:text-black"
+              className="btn-pill-outline text-xs py-1.5 px-4 font-mono font-medium hover:bg-primary hover:text-canvas"
               data-cursor="CHAT"
             >
               <span>CONNECT</span>

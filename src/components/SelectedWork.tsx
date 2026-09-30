@@ -43,8 +43,8 @@ export default function SelectedWork() {
               onClick={() => setActiveCategory(cat)}
               className={`pill-tag cursor-pointer ${
                 activeCategory === cat
-                  ? "!bg-white !text-black !border-white font-bold shadow-md"
-                  : "hover:border-white hover:text-white"
+                  ? "!bg-primary !text-canvas !border-primary font-bold shadow-md"
+                  : "hover:border-primary hover:text-display"
               }`}
             >
               {cat}
@@ -67,7 +67,7 @@ export default function SelectedWork() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 relative aspect-[16/9] bg-black overflow-hidden rounded-lg border border-subtle group">
+            <div className="lg:col-span-7 relative aspect-[16/9] bg-canvas overflow-hidden rounded-lg border border-subtle group">
               <img
                 src={featuredProject.poster}
                 alt={featuredProject.title}
@@ -75,7 +75,7 @@ export default function SelectedWork() {
               />
               <div
                 onClick={() => setSelectedProject(featuredProject)}
-                className="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer group-hover:bg-black/25 transition-all"
+                className="absolute inset-0 bg-canvas/50 flex items-center justify-center cursor-pointer group-hover:bg-canvas/30 transition-all"
               >
                 <div className="btn-pill-red text-xs tracking-wider uppercase flex items-center gap-2 shadow-2xl">
                   <span>LAUNCH FULL CASE STUDY</span>

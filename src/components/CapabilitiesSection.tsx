@@ -66,7 +66,7 @@ export default function CapabilitiesSection() {
           </span>
           <div className="flex flex-wrap gap-2.5 mt-2">
             {["Adobe Premiere Pro", "DaVinci Resolve Studio", "CapCut Pro", "Blender 3D", "After Effects", "Fairlight Audio"].map((tool) => (
-              <span key={tool} className="pill-tag text-xs font-semibold py-1 px-3.5 text-display bg-surface-elevated border-visible hover:bg-white hover:text-black">
+              <span key={tool} className="pill-tag text-xs font-semibold py-1 px-3.5 text-display bg-surface-elevated border-visible hover:bg-primary hover:text-canvas">
                 {tool}
               </span>
             ))}

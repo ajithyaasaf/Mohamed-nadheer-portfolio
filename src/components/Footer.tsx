@@ -25,7 +25,7 @@ export default function Footer() {
         <div className="flex flex-wrap items-center gap-2.5 text-xs">
           <a
             href="mailto:nadheeransari24@gmail.com"
-            className="pill-tag py-1 px-3.5 uppercase font-medium text-display bg-surface border-visible hover:bg-white hover:text-black"
+            className="pill-tag py-1 px-3.5 uppercase font-medium text-display bg-surface border-visible hover:bg-primary hover:text-canvas"
           >
             Email
           </a>
@@ -33,7 +33,7 @@ export default function Footer() {
             href="https://wa.me/919042050028"
             target="_blank"
             rel="noopener noreferrer"
-            className="pill-tag py-1 px-3.5 uppercase font-medium text-display bg-surface border-visible hover:bg-white hover:text-black"
+            className="pill-tag py-1 px-3.5 uppercase font-medium text-display bg-surface border-visible hover:bg-primary hover:text-canvas"
           >
             WhatsApp
           </a>
@@ -41,7 +41,7 @@ export default function Footer() {
             href="https://www.instagram.com/__nadzz_?stkn=ODhrMTVqc2hoNGo3"
             target="_blank"
             rel="noopener noreferrer"
-            className="pill-tag py-1 px-3.5 uppercase font-medium text-display bg-surface border-visible hover:bg-white hover:text-black"
+            className="pill-tag py-1 px-3.5 uppercase font-medium text-display bg-surface border-visible hover:bg-primary hover:text-canvas"
           >
             Instagram
           </a>
@@ -49,7 +49,7 @@ export default function Footer() {
             href="https://www.youtube.com/@NadheerAnsari"
             target="_blank"
             rel="noopener noreferrer"
-            className="pill-tag py-1 px-3.5 uppercase font-medium text-display bg-surface border-visible hover:bg-white hover:text-black"
+            className="pill-tag py-1 px-3.5 uppercase font-medium text-display bg-surface border-visible hover:bg-primary hover:text-canvas"
           >
             YouTube
           </a>
@@ -63,7 +63,7 @@ export default function Footer() {
 
           <button
             onClick={scrollToTop}
-            className="btn-pill-outline text-xs py-1.5 px-4 font-mono font-medium text-display border-visible hover:bg-white hover:text-black flex items-center gap-1.5 cursor-pointer"
+            className="btn-pill-outline text-xs py-1.5 px-4 font-mono font-medium text-display border-visible hover:bg-primary hover:text-canvas flex items-center gap-1.5 cursor-pointer"
             aria-label="Back to Top"
             data-cursor="TOP"
           >

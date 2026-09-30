@@ -10,7 +10,7 @@
   --color-canvas: var(--bg-canvas);
   --color-surface: var(--bg-surface);
   --color-surface-elevated: var(--bg-surface-elevated);
-  --color-tag: #181816;
+  --color-tag: var(--bg-surface-elevated);
 
   /* Typography Tokens */
   --color-display: var(--text-display);
@@ -139,19 +139,19 @@
   padding: 0.65rem 1.65rem;
   border-radius: 9999px;
   background-color: var(--accent-red);
-  color: var(--text-display);
+  color: var(--accent-cream);
   font-family: var(--font-space-grotesk), sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 16px rgba(229, 91, 76, 0.3);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--accent-red) 35%, transparent);
 }
 
 .btn-pill-red:hover {
   background-color: var(--accent-red-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(229, 91, 76, 0.45);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--accent-red) 50%, transparent);
 }
 
 /* High-Visibility Outlined Pill Button (Centralized Tokens) */
@@ -186,22 +186,22 @@
   letter-spacing: 0.08em;
 }
 
-/* Custom Scrollbar for sleek dark feel */
+/* Custom Scrollbar for sleek dark feel (Centralized Tokens) */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B0B0A;
+  background: var(--bg-canvas);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(245, 242, 235, 0.2);
+  background: var(--border-visible);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(245, 242, 235, 0.45);
+  background: var(--border-strong);
 }
 
 /* Custom Cursor support */
@@ -214,7 +214,7 @@
 }
 
 :focus-visible {
-  outline: 2px solid #E55B4C;
+  outline: 2px solid var(--accent-red);
   outline-offset: 3px;
 }
 

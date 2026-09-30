@@ -46,7 +46,7 @@ export default function Hero() {
                 {tools.map((tool) => (
                   <span
                     key={tool}
-                    className="pill-tag text-xs py-1 px-3.5 text-display bg-surface-elevated hover:bg-white hover:text-black"
+                    className="pill-tag text-xs py-1 px-3.5 text-display bg-surface-elevated hover:bg-primary hover:text-canvas"
                   >
                     {tool}
                   </span>

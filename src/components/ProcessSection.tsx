@@ -31,7 +31,7 @@ export default function ProcessSection() {
             <div>
               <div className="flex items-center justify-between font-mono text-xs mb-6">
                 <span className="text-muted font-semibold">PHASE {item.step}</span>
-                <span className="pill-tag text-[10px] py-0.5 px-2.5 font-bold uppercase !bg-accent !text-display !border-accent">
+                <span className="pill-tag text-[10px] py-0.5 px-2.5 font-bold uppercase !bg-accent !text-accent-cream !border-accent">
                   {item.phase}
                 </span>
               </div>
