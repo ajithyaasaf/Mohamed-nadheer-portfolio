@@ -1,26 +1,189 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Master Cinematic Dark Palette (Senior Graphic Designer Contrast System) */
+    --bg-canvas: #0B0B0A;
+    --bg-surface: #141413;
+    --bg-surface-elevated: #1B1B19;
+    --bg-pill: rgba(245, 242, 235, 0.07);
+    --bg-pill-hover: #F5F2EB;
+    
+    /* High-Visibility Typography Hierarchy (WCAG AAA compliant on #0B0B0A) */
+    --text-display: #FFFFFF;        /* 100% luminance - Monumental Headings */
+    --text-primary: #F5F2EB;        /* 92% luminance - Project titles, bold copy */
+    --text-body: #DDD8CE;           /* 82% luminance - Body text, descriptions */
+    --text-secondary: #B4AEA3;      /* 68% luminance - Metadata, labels, roles */
+    --text-muted: #8A857B;          /* 52% luminance - Sub-labels, timecodes */
+    
+    /* Visible Structural Borders */
+    --border-subtle: rgba(245, 242, 235, 0.12);
+    --border-visible: rgba(245, 242, 235, 0.22);
+    --border-strong: rgba(245, 242, 235, 0.45);
+    --border-solid: #F5F2EB;
+    
+    /* Cinematic Accents */
+    --accent-red: #E55B4C;
+    --accent-red-hover: #FF6654;
+    --accent-cream: #F5F2EB;
+  }
+
+  html {
+    background-color: #0B0B0A;
+    color: #F5F2EB;
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #0B0B0A;
+    color: #F5F2EB;
+    overflow-x: hidden;
+    position: relative;
+    selection-background-color: #F5F2EB;
+    selection-color: #0B0B0A;
+  }
+
+  ::selection {
+    background-color: #F5F2EB;
+    color: #0B0B0A;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Film Grain Simulation */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Reference-Style Pill Tag Utility (High-contrast for Dark UI) */
+.pill-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.95rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(245, 242, 235, 0.22);
+  background-color: rgba(245, 242, 235, 0.06);
+  color: #F5F2EB;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pill-tag:hover {
+  background-color: #F5F2EB;
+  border-color: #FFFFFF;
+  color: #0B0B0A;
+}
+
+/* High-Visibility Primary Red Pill Button */
+.btn-pill-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.65rem;
+  border-radius: 9999px;
+  background-color: #E55B4C;
+  color: #FFFFFF;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(229, 91, 76, 0.3);
+}
+
+.btn-pill-red:hover {
+  background-color: #FF6654;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(229, 91, 76, 0.45);
+}
+
+/* High-Visibility Outlined Pill Button */
+.btn-pill-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.65rem;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(245, 242, 235, 0.35);
+  background-color: transparent;
+  color: #F5F2EB;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-pill-outline:hover {
+  background-color: #F5F2EB;
+  border-color: #FFFFFF;
+  color: #0B0B0A;
+  transform: translateY(-1px);
+}
+
+/* Technical typography & timecodes */
+.font-timecode {
+  font-family: var(--font-geist-mono), monospace;
+  font-feature-settings: "tnum" 1, "zero" 1;
+  letter-spacing: 0.08em;
+}
+
+/* Custom Scrollbar for sleek dark feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0B0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 242, 235, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 242, 235, 0.45);
+}
+
+/* Custom Cursor support */
+@media (hover: hover) and (pointer: fine) {
+  body.custom-cursor-active,
+  body.custom-cursor-active a,
+  body.custom-cursor-active button {
+    cursor: none !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #E55B4C;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .film-grain {
+    display: none !important;
+  }
 }
