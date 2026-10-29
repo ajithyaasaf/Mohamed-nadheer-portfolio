@@ -2,6 +2,7 @@
 
 import React from "react";
 import { ArrowUpRight, MapPin } from "lucide-react";
+import SoftwareIcon from "./SoftwareIcon";
 
 export default function AboutSection() {
   return (
@@ -106,8 +107,9 @@ export default function AboutSection() {
           <div className="mt-8 pt-6 border-t border-subtle flex flex-wrap items-center gap-2">
             <span className="text-xs font-mono font-bold text-muted mr-2">TOOLKIT:</span>
             {["Adobe Premiere Pro", "DaVinci Resolve", "CapCut Pro", "Blender 3D"].map((tool) => (
-              <span key={tool} className="pill-tag text-xs font-semibold bg-surface border-visible text-body">
-                {tool}
+              <span key={tool} className="pill-tag text-xs font-semibold bg-surface border-visible text-body flex items-center gap-1.5">
+                <SoftwareIcon name={tool} className="w-3.5 h-3.5 shrink-0 rounded-xs" />
+                <span>{tool}</span>
               </span>
             ))}
           </div>

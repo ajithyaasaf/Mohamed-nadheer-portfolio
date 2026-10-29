@@ -3,6 +3,7 @@
 import React from "react";
 import { Play, ExternalLink } from "lucide-react";
 import { Project } from "@/data/projects";
+import SoftwareIcon from "./SoftwareIcon";
 
 interface ProjectCardProps {
   project: Project;
@@ -75,9 +76,10 @@ export default function ProjectCard({
               {project.software.map((sw) => (
                 <span
                   key={sw}
-                  className="pill-tag text-[10px] sm:text-[11px] py-0.5 px-2.5 sm:px-3 font-semibold text-body bg-surface-elevated border-visible"
+                  className="pill-tag text-[10px] sm:text-[11px] py-0.5 px-2.5 sm:px-3 font-semibold text-body bg-surface-elevated border-visible flex items-center gap-1.5"
                 >
-                  {sw.replace("Adobe ", "").replace(" Studio", "")}
+                  <SoftwareIcon name={sw} className="w-3.5 h-3.5 shrink-0 rounded-xs" />
+                  <span>{sw.replace("Adobe ", "").replace(" Studio", "")}</span>
                 </span>
               ))}
             </div>

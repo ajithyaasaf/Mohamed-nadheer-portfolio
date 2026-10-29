@@ -3,6 +3,7 @@
 import React from "react";
 import { CAPABILITIES } from "@/data/projects";
 import { Check } from "lucide-react";
+import SoftwareIcon from "./SoftwareIcon";
 
 export default function CapabilitiesSection() {
   return (
@@ -77,9 +78,10 @@ export default function CapabilitiesSection() {
             ].map((tool) => (
               <span
                 key={tool}
-                className="pill-tag text-xs font-bold py-1 px-3.5 text-display bg-surface-elevated border-visible hover:bg-primary hover:text-canvas"
+                className="pill-tag text-xs font-bold py-1.5 px-3.5 text-display bg-surface-elevated border-visible hover:bg-primary hover:text-canvas flex items-center gap-2 group transition-all shadow-xs"
               >
-                {tool}
+                <SoftwareIcon name={tool} className="w-4 h-4 shrink-0 rounded-sm" />
+                <span>{tool}</span>
               </span>
             ))}
           </div>

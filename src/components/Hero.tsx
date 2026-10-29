@@ -2,6 +2,7 @@
 
 import React from "react";
 import { ArrowDown, Film, Play } from "lucide-react";
+import SoftwareIcon from "./SoftwareIcon";
 
 export default function Hero() {
   const tools = ["Premiere Pro", "DaVinci Resolve", "CapCut Pro", "Blender 3D"];
@@ -46,9 +47,10 @@ export default function Hero() {
                 {tools.map((tool) => (
                   <span
                     key={tool}
-                    className="pill-tag text-[11px] sm:text-xs py-1 px-3 sm:px-3.5 font-bold text-display bg-surface-elevated hover:bg-primary hover:text-canvas"
+                    className="pill-tag text-[11px] sm:text-xs py-1 px-3 sm:px-3.5 font-bold text-display bg-surface-elevated hover:bg-primary hover:text-canvas flex items-center gap-1.5"
                   >
-                    {tool}
+                    <SoftwareIcon name={tool} className="w-3.5 h-3.5 shrink-0 rounded-xs" />
+                    <span>{tool}</span>
                   </span>
                 ))}
               </div>
