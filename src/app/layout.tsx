@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://mohamednadheer.com"),
   title: "Mohamed Nadheer — Video Editor | Madurai, India",
   description:
-    "Professional video editor based in Madurai, India. Specializing in cinematic editing, motion graphics, corporate videos, YouTube content, Instagram reels, and wedding films. Over 150+ projects edited.",
+    "Professional video editor based in Madurai, India. Specializing in cinematic editing, motion graphics, corporate videos, YouTube content, Instagram reels, and wedding films. Over 50+ projects edited.",
   keywords: [
     "Mohamed Nadheer",
     "Video Editor",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mohamed Nadheer — Video Editor",
     description:
-      "Editing stories through rhythm, motion, and image. 150+ projects delivered. Premiere Pro, DaVinci Resolve, CapCut, Blender.",
+      "Editing stories through rhythm, motion, and image. 50+ projects delivered. Premiere Pro, DaVinci Resolve, CapCut, Blender.",
     siteName: "Mohamed Nadheer Portfolio",
     locale: "en_US",
     type: "website",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mohamed Nadheer — Video Editor",
     description:
-      "Editing stories through rhythm, motion, and image. 150+ projects delivered.",
+      "Editing stories through rhythm, motion, and image. 50+ projects delivered.",
     images: ["/media/showreel-poster.jpg"],
   },
   robots: {
@@ -65,8 +65,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0B0B0A",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#F5F3E9" },
+    { media: "(prefers-color-scheme: dark)", color: "#0B0B0A" },
+  ],
+  colorScheme: "light dark",
   width: "device-width",
   initialScale: 1,
 };

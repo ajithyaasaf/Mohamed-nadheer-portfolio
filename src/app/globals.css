@@ -32,36 +32,68 @@
 }
 
 @layer base {
+  /* ==========================================================================
+     DEFAULT: EDITORIAL CREAM THEME (Sampled & Calibrated from Reference Design)
+     Neat, warm, organic paper canvas with crisp carbon black ink & coral accents.
+     ========================================================================== */
   :root {
-    /* ==========================================================================
-       CENTRAL COLOR PALETTE CONFIGURATION
-       Modify values here in ONE PLACE to re-theme the entire website.
-       ========================================================================== */
-
     /* 1. Canvas & Surface Layers */
-    --bg-canvas: #0B0B0A;
-    --bg-surface: #141413;
-    --bg-surface-elevated: #1B1B19;
-    --bg-pill: rgba(245, 242, 235, 0.07);
-    --bg-pill-hover: #F5F2EB;
+    --bg-canvas: #F5F3E9;           /* Warm Ivory/Cream Paper Canvas */
+    --bg-surface: #FFFFFF;          /* Pure Crisp Elevated Card Surface */
+    --bg-surface-elevated: #ECE7DB; /* Subtle Warm Stone Pill / Card Layer */
+    --bg-pill: #EDE8DC;             /* Reference-style pill fill */
+    --bg-pill-hover: #141412;       /* Inverted pill fill on hover */
     
-    /* 2. Typography Luminance Scale */
-    --text-display: #FFFFFF;        /* 100% luminance - Monumental Headings */
-    --text-primary: #F5F2EB;        /* 92% luminance - Project titles, bold copy */
-    --text-body: #DDD8CE;           /* 82% luminance - Body text, descriptions */
-    --text-secondary: #B4AEA3;      /* 68% luminance - Metadata, labels, roles */
-    --text-muted: #8A857B;          /* 52% luminance - Sub-labels, timecodes */
+    /* 2. Typography Luminance Scale (WCAG AAA High-Contrast Ink) */
+    --text-display: #0E0E0D;        /* Rich Carbon Black - Monumental Headings */
+    --text-primary: #181715;        /* Deep Black Ink - Titles & Emphasis */
+    --text-body: #2B2925;           /* Charcoal - Razor sharp body text (14:1) */
+    --text-secondary: #565148;      /* Slate Warm Gray - Role metadata (7.5:1) */
+    --text-muted: #787267;          /* Muted Stone - Timecodes & Technical (4.8:1) */
+    
+    /* 3. Structural Hairline Borders */
+    --border-subtle: #E2DDD2;       /* Delicate separation line */
+    --border-visible: #D2CBC0;      /* Clear boundary border */
+    --border-strong: #181715;       /* Solid dark border for buttons */
+    --border-solid: #0E0E0D;
+    
+    /* 4. Brand Accents (Matched to Reference "VISIT WEBSITE" Coral Red Pill) */
+    --accent-red: #EA5A49;          /* Signature Editorial Coral Red */
+    --accent-red-hover: #D74736;    /* Deepened Coral Hover */
+    --accent-cream: #FFFFFF;        /* Contrast Text on Coral Button */
+  }
+
+  /* ==========================================================================
+     CINEMA DARK THEME (High-Contrast Movie Theatre Calibration)
+     Zero washed-out text: 100% brilliant white headers & warm cream body on black.
+     ========================================================================== */
+  html.theme-cinema,
+  body.theme-cinema,
+  [data-theme="cinema"] {
+    /* 1. Canvas & Surface Layers */
+    --bg-canvas: #0B0B0A;           /* Deep Pitch Cinema Canvas */
+    --bg-surface: #151514;          /* Elevated Cinema Surface */
+    --bg-surface-elevated: #20201E; /* Elevated Pill / Tag Surface */
+    --bg-pill: #20201E;             /* Dark pill fill */
+    --bg-pill-hover: #FFFFFF;       /* Inverted hover fill */
+    
+    /* 2. Typography Luminance Scale (100% High Contrast on Black) */
+    --text-display: #FFFFFF;        /* 100% Pure White - Bold Headings */
+    --text-primary: #F7F5EE;        /* Ultra-bright Cream - Project Titles */
+    --text-body: #DDD8CE;           /* High-luminance Body (12:1 contrast) */
+    --text-secondary: #B6B0A2;      /* Bright Readable Metadata (8:1) */
+    --text-muted: #8E887B;          /* Visible Technical Specs (5:1) */
     
     /* 3. Structural Borders */
-    --border-subtle: rgba(245, 242, 235, 0.14);
-    --border-visible: rgba(245, 242, 235, 0.22);
-    --border-strong: rgba(245, 242, 235, 0.45);
-    --border-solid: #F5F2EB;
+    --border-subtle: rgba(247, 245, 238, 0.14);
+    --border-visible: rgba(247, 245, 238, 0.24);
+    --border-strong: #F7F5EE;
+    --border-solid: #FFFFFF;
     
-    /* 4. Cinematic Brand Accents */
-    --accent-red: #E55B4C;          /* Primary Accent (Buttons, Highlights) */
-    --accent-red-hover: #FF6654;    /* Interactive Hover Glow */
-    --accent-cream: #F5F2EB;        /* Cream Contrast Accent */
+    /* 4. Brand Accents */
+    --accent-red: #FF5E4D;          /* Radiant Film Slate Red */
+    --accent-red-hover: #FF7768;    /* Luminous Hover */
+    --accent-cream: #FFFFFF;        /* Contrast Text */
   }
 
   html {
@@ -72,6 +104,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   body {
@@ -80,6 +113,7 @@
     overflow-x: hidden;
     position: relative;
     font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   /* Monumental Sculptural Display Headings (Reference Style) */
@@ -89,25 +123,15 @@
   }
 
   ::selection {
-    background-color: var(--text-primary);
-    color: var(--bg-canvas);
+    background-color: var(--accent-red);
+    color: #FFFFFF;
   }
 }
 
-/* Film Grain Simulation */
-.film-grain {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 999;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
-
-/* Reference-Style Pill Tag Utility (Centralized Design Tokens) */
+/* ==========================================================================
+   REFERENCE-STYLE PILL TAG (Sampled from Reference Image "Next.js 16", "PostgreSQL")
+   Rounded full, monospace technical typography, hairline border, crisp readability.
+   ========================================================================== */
 .pill-tag {
   display: inline-flex;
   align-items: center;
@@ -119,62 +143,68 @@
   color: var(--text-primary);
   font-family: var(--font-space-mono), monospace;
   font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.03em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .pill-tag:hover {
   background-color: var(--text-primary);
-  border-color: var(--text-display);
+  border-color: var(--text-primary);
   color: var(--bg-canvas);
 }
 
-/* High-Visibility Primary Red Pill Button (Centralized Tokens) */
+/* ==========================================================================
+   PRIMARY RED PILL BUTTON (Sampled directly from Reference "VISIT WEBSITE")
+   Vibrant coral/salmon red, bold white text, pill radius, smooth scale hover.
+   ========================================================================== */
 .btn-pill-red {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.65rem 1.65rem;
+  padding: 0.7rem 1.85rem;
   border-radius: 9999px;
   background-color: var(--accent-red);
-  color: var(--accent-cream);
+  color: #FFFFFF !important;
   font-family: var(--font-space-grotesk), sans-serif;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.02em;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 16px color-mix(in srgb, var(--accent-red) 35%, transparent);
+  box-shadow: 0 4px 14px rgba(234, 90, 73, 0.28);
 }
 
 .btn-pill-red:hover {
   background-color: var(--accent-red-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px color-mix(in srgb, var(--accent-red) 50%, transparent);
+  box-shadow: 0 6px 20px rgba(234, 90, 73, 0.42);
 }
 
-/* High-Visibility Outlined Pill Button (Centralized Tokens) */
+/* ==========================================================================
+   OUTLINED PILL BUTTON (Sampled directly from Reference "VIEW ON GITHUB")
+   Hairline dark/light outline, bold typography, invert on hover.
+   ========================================================================== */
 .btn-pill-outline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.65rem 1.65rem;
+  padding: 0.7rem 1.85rem;
   border-radius: 9999px;
   border: 1.5px solid var(--border-strong);
   background-color: transparent;
   color: var(--text-primary);
   font-family: var(--font-space-grotesk), sans-serif;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.02em;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-pill-outline:hover {
   background-color: var(--text-primary);
-  border-color: var(--text-display);
+  border-color: var(--text-primary);
   color: var(--bg-canvas);
   transform: translateY(-1px);
 }
@@ -186,9 +216,9 @@
   letter-spacing: 0.08em;
 }
 
-/* Custom Scrollbar for sleek dark feel (Centralized Tokens) */
+/* Custom Scrollbar for sleek feel */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -224,8 +254,5 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-  .film-grain {
-    display: none !important;
   }
 }

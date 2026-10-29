@@ -9,8 +9,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="py-12 border-t border-subtle bg-canvas text-secondary font-mono text-xs">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    <footer className="py-10 sm:py-12 border-t border-subtle bg-canvas text-secondary font-mono text-xs">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         {/* Left: Identity */}
         <div>
           <span className="text-display font-bold tracking-tight uppercase block text-sm">

@@ -39,7 +39,7 @@ export default function Home() {
           {/* 03: Selected Work with Deep-Dive Case Studies */}
           <SelectedWork />
 
-          {/* 04: 150+ Projects Volume Typographic Monument */}
+          {/* 04: 50+ Projects Volume Typographic Monument */}
           <VolumeHighlight />
 
           {/* 05: About Mohamed Nadheer & Editorial Portrait */}

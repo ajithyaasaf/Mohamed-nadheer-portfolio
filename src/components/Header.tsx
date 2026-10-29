@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, Sun, Moon } from "lucide-react";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<"cream" | "cinema">("cream");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,8 +14,30 @@ export default function Header() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Initialize theme from localStorage or default to "cream" (Reference Design)
+    const savedTheme = localStorage.getItem("nadheer_theme") as "cream" | "cinema" | null;
+    const initialTheme = savedTheme || "cream";
+    setTheme(initialTheme);
+    if (initialTheme === "cinema") {
+      document.documentElement.classList.add("theme-cinema");
+    } else {
+      document.documentElement.classList.remove("theme-cinema");
+    }
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "cream" ? "cinema" : "cream";
+    setTheme(nextTheme);
+    localStorage.setItem("nadheer_theme", nextTheme);
+    if (nextTheme === "cinema") {
+      document.documentElement.classList.add("theme-cinema");
+    } else {
+      document.documentElement.classList.remove("theme-cinema");
+    }
+  };
 
   const navItems = [
     { label: "WORK", href: "#work" },
@@ -40,7 +63,7 @@ export default function Header() {
             className="group flex flex-col items-start focus:outline-none"
             data-cursor="TOP"
           >
-            <span className="text-base sm:text-lg font-semibold tracking-tight text-display group-hover:text-accent transition-colors uppercase">
+            <span className="text-base sm:text-lg font-bold tracking-tight text-display group-hover:text-accent transition-colors uppercase">
               Mohamed Nadheer
             </span>
             <span className="font-mono text-[11px] tracking-widest text-muted uppercase flex items-center gap-1.5 mt-0.5">
@@ -51,7 +74,7 @@ export default function Header() {
 
           {/* Desktop Minimal Editorial Navigation */}
           <nav
-            className="hidden md:flex items-center gap-8 lg:gap-10 font-mono text-xs tracking-wider text-secondary"
+            className="hidden md:flex items-center gap-6 lg:gap-8 font-mono text-xs tracking-wider text-secondary"
             aria-label="Main Navigation"
           >
             {navItems.map((item) => (
@@ -65,11 +88,33 @@ export default function Header() {
               </a>
             ))}
 
+            {/* Theme Toggle Pill (Cream Editorial ↔ Cinema Dark) */}
+            <button
+              onClick={toggleTheme}
+              className="pill-tag text-[11px] py-1 px-3 cursor-pointer flex items-center gap-1.5 font-bold hover:bg-primary hover:text-canvas transition-all"
+              title={`Switch to ${theme === "cream" ? "Cinema Dark" : "Editorial Cream"} Mode`}
+              aria-label="Toggle Theme Palette"
+              data-cursor="THEME"
+            >
+              {theme === "cream" ? (
+                <>
+                  <Moon className="w-3.5 h-3.5 text-accent" />
+                  <span>CINEMA MODE</span>
+                </>
+              ) : (
+                <>
+                  <Sun className="w-3.5 h-3.5 text-amber-400" />
+                  <span>CREAM PALETTE</span>
+                </>
+              )}
+            </button>
+
+            {/* Direct Connect Pill Button */}
             <a
               href="https://wa.me/919042050028"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-pill-outline text-xs py-1.5 px-4 font-mono font-medium hover:bg-primary hover:text-canvas"
+              className="btn-pill-outline text-xs py-1.5 px-4 font-mono font-bold hover:bg-primary hover:text-canvas"
               data-cursor="CHAT"
             >
               <span>CONNECT</span>
@@ -77,8 +122,20 @@ export default function Header() {
             </a>
           </nav>
 
-          {/* Mobile Clean Menu Button */}
-          <div className="flex md:hidden items-center gap-3">
+          {/* Mobile Actions: Theme Toggle + Menu Button */}
+          <div className="flex md:hidden items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="pill-tag text-[11px] py-1 px-2.5 cursor-pointer flex items-center gap-1"
+              aria-label="Toggle Theme Palette"
+            >
+              {theme === "cream" ? (
+                <Moon className="w-3.5 h-3.5 text-accent" />
+              ) : (
+                <Sun className="w-3.5 h-3.5 text-amber-400" />
+              )}
+            </button>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-display focus:outline-none"
@@ -106,7 +163,7 @@ export default function Header() {
               key={item.label}
               href={item.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-2xl font-light text-display tracking-tight hover:text-accent transition-colors flex items-center justify-between border-b border-subtle pb-3"
+              className="text-2xl font-medium text-display tracking-tight hover:text-accent transition-colors flex items-center justify-between border-b border-subtle pb-3"
             >
               <span>{item.label}</span>
               <span className="font-mono text-xs text-muted">
@@ -122,8 +179,13 @@ export default function Header() {
             <span className="text-display font-medium">MADURAI, TAMIL NADU</span>
           </div>
           <div className="flex justify-between items-center text-xs font-mono text-secondary">
-            <span>PORTFOLIO VOLUME</span>
-            <span className="text-accent font-semibold">150+ EDITS</span>
+            <span>PALETTE MODE</span>
+            <button
+              onClick={toggleTheme}
+              className="pill-tag text-xs py-1 px-3 text-display font-bold"
+            >
+              {theme === "cream" ? "SWITCH TO CINEMA DARK" : "SWITCH TO CREAM"}
+            </button>
           </div>
           <a
             href="https://wa.me/919042050028"
